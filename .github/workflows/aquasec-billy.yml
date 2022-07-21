@@ -1,4 +1,4 @@
-name: build-sbom
+name: build-SBOM
 on:
   push:
     branches:
