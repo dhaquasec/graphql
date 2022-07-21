@@ -1,12 +1,10 @@
-name: build
+name: build-PR
 on:
-  push:
-    branches:
-      - main
   
+  pull_request:
 jobs:
   build:
-    name: Build
+    name: BuilD
     runs-on: ubuntu-18.04
     steps:
       - name: Checkout code
@@ -23,4 +21,5 @@ jobs:
           AQUA_KEY: ${{ secrets.AQUA_KEY }}
           AQUA_SECRET: ${{ secrets.AQUA_SECRET }}
           TRIVY_RUN_AS_PLUGIN: 'aqua'
-          TRIGGERED_BY: 'PUSH'
+          TRIGGERED_BY: 'PR'
+          GITHUB_TOKEN: ${{ github.token }}
